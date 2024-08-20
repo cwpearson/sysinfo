@@ -1,0 +1,10 @@
+#ifndef SYSINFO_VERSION_HPP
+#define SYSINFO_VERSION_HPP
+
+// clang-format off
+#cmakedefine01 SYSINFO_VERSION_MAJOR
+#cmakedefine01 SYSINFO_VERSION_MINOR
+#cmakedefine01 SYSINFO_VERSION_PATCH
+// clang-format on
+
+#endif
