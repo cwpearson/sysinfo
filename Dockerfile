@@ -1,5 +1,7 @@
 FROM debian:buster-20181112-slim
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get --allow-unauthenticated --allow-insecure-repositories update \
  && apt-get --allow-unauthenticated install -y --no-install-suggests --no-install-recommends gnupg
 

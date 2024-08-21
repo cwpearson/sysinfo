@@ -2,10 +2,16 @@ name: Cross-Platform
 
 on:
   push:
+    paths-ignore:
+      - README.md
+      - LICENSE
     branches: [ "master" ]
     tags:
       - "v*.*.*"
   pull_request:
+    paths-ignore:
+      - README.md
+      - LICENSE
     branches: [ "master" ]
   workflow_dispatch:
 
@@ -13,25 +19,6 @@ permissions:
   contents: write
 
 jobs:
-  # arm64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Set up QEMU
-  #       uses: docker/setup-qemu-action@v3
-  #       with:
-  #         platforms: linux/arm64
-  #     - name: Set up Docker Buildx
-  #       uses: docker/setup-buildx-action@v3
-  #     - name: Setup build environment
-  #       run: docker buildx build --platform linux/arm64 -t arm64 .
-  #     - name: Build
-  #       run: mkdir -p build \
-  #         docker run --rm \
-  #         -v $(realpath .):/src \
-  #         -e SYSINFO_SRC=/src,SYSINFO_BUILD=/src/build \
-  #         /src/build/configureBuild.sh
   # armv7:
   #   runs-on: ubuntu-latest
   #   steps:
@@ -67,7 +54,7 @@ jobs:
         run: docker build -t amd64 .
       - name: Build
         run: |
-          chmod +x scripts/dockerConfigureBuild.sh  
+          chmod +x scripts/dockerConfigureBuild.sh
           docker run --rm \
             -v $(realpath .):/src \
             -e SYSINFO_SRC=/src \
@@ -77,6 +64,34 @@ jobs:
       - name: Prepare artifacts
         run: |
           mv -v build/sysinfo build/sysinfo-amd64
+      - name: Upload artifacts
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/sysinfo-*
+  arm64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/arm64
+      - name: Setup build environment
+        run: docker buildx build --platform linux/arm64 -t arm64 .
+      - name: Build
+        run: |
+          chmod +x scripts/dockerConfigureBuild.sh
+          docker run --platform linux/arm64 --rm \
+            -v $(realpath .):/src \
+            -e SYSINFO_SRC=/src \
+            -e SYSINFO_BUILD=/src/build \
+            arm64 \
+            /src/scripts/dockerConfigureBuild.sh
+      - name: Prepare artifacts
+        run: |
+          mv -v build/sysinfo build/sysinfo-arm64
       - name: Upload artifacts
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
