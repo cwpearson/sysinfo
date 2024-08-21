@@ -24,3 +24,8 @@ build/sysinfo
 ```bash
 podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i main.cpp cmake/version.hpp.in
 ```
+
+## Roadmap
+
+- [ ] armv7
+- [ ] CI: test binary
