@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(sysinfo VERSION 0.3.0)
 
-message(STATUS ${PROJECT_VERSION_MAJOR})
-
 if (NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
     message(STATUS "No build type provided, setting RelWithDebInfo")
     set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "" FORCE)
