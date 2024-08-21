@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(sysinfo VERSION 0.2.0)
+project(sysinfo VERSION 0.3.0)
 
 message(STATUS ${PROJECT_VERSION_MAJOR})
 
