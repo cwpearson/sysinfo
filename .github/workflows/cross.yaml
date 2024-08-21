@@ -2,10 +2,6 @@ name: Cross-Platform
 
 on:
   push:
-    paths-ignore:
-      - README.md
-      - LICENSE
-    branches: [ "master" ]
     tags:
       - "v*.*.*"
   pull_request:
