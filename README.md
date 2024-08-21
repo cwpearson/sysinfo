@@ -1,6 +1,15 @@
 # sysinfo
 
-A binary that collects some system info
+A linux tool that prints some system info.
+
+## Precompiled Binaries
+
+Available at [Releases](https://github.com/cwpearson/sysinfo/releases/latest)
+
+| Arch | Binary |
+|-|-|
+| `arm64`/`aarch64` | `sysinfo-arm64` |
+| `amd64` | `sysinfo-amd64` | 
 
 ## Quick Start
 
