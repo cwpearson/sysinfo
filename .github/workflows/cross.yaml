@@ -14,6 +14,11 @@ on:
 permissions:
   contents: write
 
+# only run most recent workflow in branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   # armv7:
   #   runs-on: ubuntu-latest
