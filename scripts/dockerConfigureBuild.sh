@@ -2,8 +2,9 @@
 
 set -eou pipefail
 
-cmake -S "$SYSINFO_SRC" -B "$SYSINFO_BUILD"
+mkdir -p "$SYSINFO_BUILD"
+(cd "$SYSINFO_BUILD"; cmake "$SYSINFO_SRC")
 
-cmake --build "$SYSINFO_BUILD"
+make -C "$SYSINFO_BUILD"
 
 chmod -R ugo+rwx "$SYSINFO_BUILD"
