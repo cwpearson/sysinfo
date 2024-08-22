@@ -28,19 +28,6 @@ jobs:
   #       uses: docker/setup-buildx-action@v3
   #     - name: build
   #       run: docker buildx build --platform linux/arm/v7 -t armv7 .
-  # ppc64le:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Set up QEMU
-  #       uses: docker/setup-qemu-action@v3
-  #       with:
-  #         platforms: linux/ppc64le
-  #     - name: Set up Docker Buildx
-  #       uses: docker/setup-buildx-action@v3
-  #     - name: build
-  #       run: docker buildx build --platform linux/ppc64le -t ppc64le .
   amd64:
     runs-on: ubuntu-latest
     steps:
@@ -88,6 +75,34 @@ jobs:
       - name: Prepare artifacts
         run: |
           mv -v build/sysinfo build/sysinfo-arm64
+      - name: Upload artifacts
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/sysinfo-*
+  ppc64le:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/ppc64le
+      - name: Setup build environment
+        run: docker buildx build --platform linux/ppc64le -f ppc64le.dockerfile -t ppc64le .
+      - name: Build
+        run: |
+          chmod +x scripts/dockerConfigureBuild.sh
+          docker run --platform linux/ppc64le --rm \
+            -v $(realpath .):/src \
+            -e SYSINFO_SRC=/src \
+            -e SYSINFO_BUILD=/src/build \
+            ppc64le \
+            /src/scripts/dockerConfigureBuild.sh
+      - name: Prepare artifacts
+        run: |
+          mv -v build/sysinfo build/sysinfo-ppc64le
       - name: Upload artifacts
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
