@@ -12,28 +12,6 @@ Download from [Latest Release](https://github.com/cwpearson/sysinfo/releases/lat
 | `amd64` | `sysinfo-amd64` |
 | `ppc64le` | `sysinfo-ppc64le` |
 
-## Quick Start: Compile from Source
-
-* Requires a C++11 compiler and CMake 3.1
-
-```bash
-cmake -S . -B build
-cmake --build build
-build/sysinfo
-```
-
-## Contributing
-
-```bash
-podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i main.cpp cmake/version.hpp.in
-```
-
-## Roadmap
-
-- [ ] armv7
-- [x] ppc64le
-- [x] CI: test binary
-
 ## Example
 
 ```
@@ -106,3 +84,25 @@ cmake version 3.14.5
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
+
+## Compile from Source
+
+* Requires a C++11 compiler and CMake 3.1
+
+```bash
+cmake -S . -B build
+cmake --build build
+build/sysinfo
+```
+
+## Contributing
+
+```bash
+podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i main.cpp cmake/version.hpp.in
+```
+
+## Roadmap
+
+- [ ] armv7
+- [x] ppc64le
+- [x] CI: test binary
