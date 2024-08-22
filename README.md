@@ -2,9 +2,9 @@
 
 A linux tool that prints some system info.
 
-## Precompiled Binaries
+## Quick Start: Precompiled Binaries
 
-Available at [Releases](https://github.com/cwpearson/sysinfo/releases/latest)
+Download from [Latest Release](https://github.com/cwpearson/sysinfo/releases/latest)
 
 | Arch | Binary |
 |-|-|
@@ -12,7 +12,9 @@ Available at [Releases](https://github.com/cwpearson/sysinfo/releases/latest)
 | `amd64` | `sysinfo-amd64` |
 | `ppc64le` | `sysinfo-ppc64le` |
 
-## Quick Start
+## Quick Start: Compile from Source
+
+* Requires a C++11 compiler and CMake 3.1
 
 ```bash
 cmake -S . -B build
