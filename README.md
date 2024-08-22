@@ -103,6 +103,8 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
 
 ## Roadmap
 
-- [ ] armv7
-- [x] ppc64le
+- [ ] remove C++11 requirement
+- [ ] armv7 precompiled binary
+- [x] arm64 precompiled binary
+- [x] ppc64le precompiled binary
 - [x] CI: test binary
