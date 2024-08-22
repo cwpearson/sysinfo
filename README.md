@@ -28,4 +28,5 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
 ## Roadmap
 
 - [ ] armv7
-- [ ] CI: test binary
+- [x] ppc64le
+- [x] CI: test binary
