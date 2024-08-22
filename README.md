@@ -9,7 +9,8 @@ Available at [Releases](https://github.com/cwpearson/sysinfo/releases/latest)
 | Arch | Binary |
 |-|-|
 | `arm64`/`aarch64` | `sysinfo-arm64` |
-| `amd64` | `sysinfo-amd64` | 
+| `amd64` | `sysinfo-amd64` |
+| `ppc64le` | `sysinfo-ppc64le` |
 
 ## Quick Start
 
