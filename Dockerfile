@@ -12,6 +12,5 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138 \
  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853
    
 RUN apt-get update \
- && apt-get upgrade -y \
  && apt-get install -y --no-install-suggests --no-install-recommends \
  ca-certificates cmake make g++
