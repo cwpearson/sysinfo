@@ -57,6 +57,12 @@ jobs:
             -e SYSINFO_BUILD=/src/build \
             amd64 \
             /src/scripts/dockerConfigureBuild.sh
+      - name: Test
+        run: |
+          docker run --platform linux/amd64 --rm \
+            -v $(realpath .):/src \
+            amd64 \
+            /src/build/sysinfo
       - name: Prepare artifacts
         run: |
           mv -v build/sysinfo build/sysinfo-amd64
@@ -85,6 +91,12 @@ jobs:
             -e SYSINFO_BUILD=/src/build \
             arm64 \
             /src/scripts/dockerConfigureBuild.sh
+      - name: Test
+        run: |
+          docker run --platform linux/arm64 --rm \
+            -v $(realpath .):/src \
+            arm64 \
+            /src/build/sysinfo
       - name: Prepare artifacts
         run: |
           mv -v build/sysinfo build/sysinfo-arm64
