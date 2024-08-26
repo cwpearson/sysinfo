@@ -136,9 +136,14 @@ int main(int argc, char **argv) {
   section("date");
   section("whoami");
   section("hostname");
-  section("cat /etc/os-release");
-  section("uname -a");
-  section("lscpu");
-  section("module list");
   section("cmake --version");
+  section("module list");
+  section("uname -a");
+#if defined(SYSINFO_ENABLE_LINUX)
+  section("cat /etc/os-release");
+  section("lscpu");
+#elif defined(SYSINFO_ENABLE_DARWIN)
+  section("sysctl -n machdep.cpu.brand_string");
+  section("system_profiler SPHardwareDataType");
+#endif
 }
