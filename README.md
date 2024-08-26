@@ -6,11 +6,13 @@ A linux tool that prints some system info.
 
 Download from [Latest Release](https://github.com/cwpearson/sysinfo/releases/latest)
 
-| Arch | Binary |
-|-|-|
-| `arm64`/`aarch64` | `sysinfo-arm64` |
-| `amd64` | `sysinfo-amd64` |
-| `ppc64le` | `sysinfo-ppc64le` |
+|OS | Arch | Binary |
+|-|-|-|
+| Linux | `arm64`/`aarch64` | `sysinfo-linux-arm64` |
+| Linux | `amd64` | `sysinfo-linux-amd64` |
+| Linux | `ppc64le` | `sysinfo-linux-ppc64le` |
+| macOS | `amd64` | `sysinfo-macos-amd64` |
+| macOS | `arm` | `sysinfo-macos-arm` |
 
 ## Example
 
@@ -108,3 +110,8 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
 - [x] arm64 precompiled binary
 - [x] ppc64le precompiled binary
 - [x] CI: test binary
+- [x] macOS-amd64 precompiled binary
+- [x] macOS-arm precompiled binary
+- [ ] Nvidia stuff
+- [ ] Rocm stuff
+- [ ] Intel stuff
