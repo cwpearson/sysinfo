@@ -33,7 +33,7 @@ jobs:
   #       uses: docker/setup-buildx-action@v3
   #     - name: build
   #       run: docker buildx build --platform linux/arm/v7 -t armv7 .
-  amd64:
+  linux-amd64:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -63,7 +63,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: build/sysinfo-*
-  arm64:
+  linux-arm64:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -97,7 +97,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: build/sysinfo-*
-  ppc64le:
+  linux-ppc64le:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -120,6 +120,44 @@ jobs:
       - name: Prepare artifacts
         run: |
           mv -v build/sysinfo build/sysinfo-linux-ppc64le
+      - name: Upload artifacts
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/sysinfo-*
+  macos-amd64:
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build
+      - name: Build
+        run: cmake --build build
+      - name: Test
+        run: build/sysinfo
+      - name: Prepare artifacts
+        run: |
+          mv -v build/sysinfo build/sysinfo-macos-amd64
+      - name: Upload artifacts
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/sysinfo-*
+  macos-arm:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build
+      - name: Build
+        run: cmake --build build
+      - name: Test
+        run: build/sysinfo
+      - name: Prepare artifacts
+        run: |
+          mv -v build/sysinfo build/sysinfo-macos-amd64
       - name: Upload artifacts
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
