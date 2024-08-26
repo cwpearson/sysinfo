@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(sysinfo VERSION 0.5.0)
+project(sysinfo VERSION 0.5.1)
 
 if (NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
     message(STATUS "No build type provided, setting MinSizeRel")
