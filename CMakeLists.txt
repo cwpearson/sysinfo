@@ -15,3 +15,11 @@ add_executable(sysinfo main.cpp)
 target_include_directories(sysinfo PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 set_target_properties(sysinfo PROPERTIES CXX_STANDARD 11) # for raw string literals
 set_target_properties(sysinfo PROPERTIES CXX_EXTENSIONS OFF)
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  target_compile_definitions(sysinfo PRIVATE SYSINFO_ENABLE_DARWIN)
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+  target_compile_definitions(sysinfo PRIVATE SYSINFO_ENABLE_LINUX)
+else ()
+  message(FATAL "Unsupported system ${CMAKE_SYSTEM_NAME}")
+endif()
