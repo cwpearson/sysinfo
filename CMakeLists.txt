@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 project(sysinfo VERSION 0.4.1)
 
 if (NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
-    message(STATUS "No build type provided, setting RelWithDebInfo")
-    set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "" FORCE)
+    message(STATUS "No build type provided, setting MinSizeRel")
+    set(CMAKE_BUILD_TYPE MinSizeRel CACHE STRING "" FORCE)
 endif()
 
 set(SYSINFO_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
