@@ -157,7 +157,7 @@ jobs:
         run: build/sysinfo
       - name: Prepare artifacts
         run: |
-          mv -v build/sysinfo build/sysinfo-macos-amd64
+          mv -v build/sysinfo build/sysinfo-macos-arm
       - name: Upload artifacts
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
