@@ -120,19 +120,21 @@ Examples:
 )";
 
 int main(int argc, char **argv) {
-
   Cfg cfg = parse_cli(argc, argv);
+
+  std::cout << "sysinfo " << SYSINFO_VERSION_MAJOR << "."
+            << SYSINFO_VERSION_MINOR << "." << SYSINFO_VERSION_PATCH << "\n"
+            << "copyright Carl Pearson 2024\n";
+
+  if (cfg.version) {
+    return 0;
+  }
 
   if (cfg.help) {
     std::cout << HELP_STR;
     return 0;
   }
 
-  if (cfg.version) {
-    std::cout << "sysinfo " << SYSINFO_VERSION_MAJOR << "."
-              << SYSINFO_VERSION_MINOR << "." << SYSINFO_VERSION_PATCH << "\n";
-    return 0;
-  }
   section("date");
   section("whoami");
   section("hostname");
