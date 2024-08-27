@@ -115,3 +115,4 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
 - [ ] Nvidia stuff
 - [ ] Rocm stuff
 - [ ] Intel stuff
+- [ ] `numactl -s`
