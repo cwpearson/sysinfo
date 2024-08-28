@@ -141,6 +141,7 @@ int main(int argc, char **argv) {
   section("cmake --version");
   section("module list");
   section("uname -a");
+  section("lsmod");
 #if defined(SYSINFO_ENABLE_LINUX)
   section("cat /etc/os-release");
   section("lscpu");
