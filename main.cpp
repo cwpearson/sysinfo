@@ -144,6 +144,7 @@ int main(int argc, char **argv) {
 #if defined(SYSINFO_ENABLE_LINUX)
   section("cat /etc/os-release");
   section("lscpu");
+  section("numactl -s");
 #elif defined(SYSINFO_ENABLE_DARWIN)
   section("sysctl -n machdep.cpu.brand_string");
   section("system_profiler SPHardwareDataType");
