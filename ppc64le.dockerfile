@@ -7,6 +7,6 @@ RUN wget --no-check-certificate https://github.com/Kitware/CMake/archive/refs/ta
 RUN tar -xf v3.1.3.tar.gz
 
 RUN cd CMake-3.1.3 \
- && ./bootstrap \
+ && ./bootstrap --parallel=$(nproc) \
  && make -j $(nproc) \
  && make install
