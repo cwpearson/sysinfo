@@ -105,7 +105,6 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
 
 ## Roadmap
 
-- [ ] remove C++11 requirement
 - [ ] armv7 precompiled binary
 - [x] arm64 precompiled binary
 - [x] ppc64le precompiled binary
@@ -113,13 +112,16 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
   - [ ] ppc64le
 - [x] macOS-amd64 precompiled binary
 - [x] macOS-arm precompiled binary
-- Nvidia stuff
-  - [ ] `nvidia-smi`
-- ROCm stuff
-   - [ ] `rocm-smi`
-- [ ] Intel stuff
+- Nvidia software stuff
+  - [x] `nvcc --version`
+  - [x] `nvidia-smi`
+- ROCm software stuff
+  - [x] `rocm-smi`
+- Intel stuff
 - [x] numactl
 - [ ] CMake 3.27 deprecated compatibility with CMake < 3.5
 - mpi stuff
+  - [x] `mpirun --version`
+  - [x] `mpicc --version`
   - [ ] `mpichversion`
   - [ ] `ompi_info` 
