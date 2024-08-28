@@ -113,8 +113,13 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
   - [ ] ppc64le
 - [x] macOS-amd64 precompiled binary
 - [x] macOS-arm precompiled binary
-- [ ] Nvidia stuff
-- [ ] Rocm stuff
+- Nvidia stuff
+  - [ ] `nvidia-smi`
+- ROCm stuff
+   - [ ] `rocm-smi`
 - [ ] Intel stuff
 - [x] numactl
 - [ ] CMake 3.27 deprecated compatibility with CMake < 3.5
+- mpi stuff
+  - [ ] `mpichversion`
+  - [ ] `ompi_info` 
