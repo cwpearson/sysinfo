@@ -142,6 +142,13 @@ int main(int argc, char **argv) {
   section("module list");
   section("uname -a");
   section("lsmod");
+  section("nvcc --version");
+  section("nvidia-smi");
+  section("hipcc --version");
+  section("rocm-smi");
+  section("mpirun --version");
+  section("mpicc --version");
+  section("mpic++ --version");
 #if defined(SYSINFO_ENABLE_LINUX)
   section("cat /etc/os-release");
   section("lscpu");
