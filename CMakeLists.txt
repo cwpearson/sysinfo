@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.0)
+# CMake 3.27 deprecated everything before 3.5
+cmake_minimum_required(VERSION 3.5)
 project(sysinfo VERSION 0.6.1)
 
 if (NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
