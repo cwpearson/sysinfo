@@ -119,9 +119,10 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
   - [x] `rocm-smi`
 - Intel stuff
 - [x] numactl
-- [ ] CMake 3.27 deprecated compatibility with CMake < 3.5
+- [x] CMake 3.27 deprecated compatibility with CMake < 3.5
 - mpi stuff
   - [x] `mpirun --version`
   - [x] `mpicc --version`
   - [ ] `mpichversion`
-  - [ ] `ompi_info` 
+  - [ ] `ompi_info`
+- [ ] show missing / failed commands at the end 
