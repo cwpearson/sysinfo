@@ -117,6 +117,12 @@ jobs:
             -e SYSINFO_BUILD=/src/build \
             ppc64le \
             /src/scripts/dockerConfigureBuild.sh
+      - name: Test
+        run: |
+          docker run --platform linux/ppc64le --rm \
+            -v $(realpath .):/src \
+            ppc64le \
+            /src/build/sysinfo
       - name: Prepare artifacts
         run: |
           mv -v build/sysinfo build/sysinfo-linux-ppc64le
