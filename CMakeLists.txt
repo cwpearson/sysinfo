@@ -1,6 +1,6 @@
 # CMake 3.27 deprecated everything before 3.5
 cmake_minimum_required(VERSION 3.5)
-project(sysinfo VERSION 0.6.1)
+project(sysinfo VERSION 0.7.0)
 
 if (NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
     message(STATUS "No build type provided, setting MinSizeRel")
