@@ -125,4 +125,5 @@ podman run --rm -v ${PWD}:/src ghcr.io/cwpearson/clang-format-14 clang-format -i
   - [x] `mpicc --version`
   - [ ] `mpichversion`
   - [ ] `ompi_info`
-- [ ] show missing / failed commands at the end 
+- [ ] show missing / failed commands at the end
+- [ ] `/proc/cmdline`
